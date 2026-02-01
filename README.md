@@ -1,154 +1,142 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import {
-  ShoppingCart,
-  Phone,
-  MessageCircle,
-  ShieldCheck,
-  Truck,
-  Egg,
-} from "lucide-react";
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Badawi Farm | Telur Ayam Petelur</title>
 
-const WA_NUMBER = "6282132698172";
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #ffffff;
+      text-align: center;
+    }
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #cbd5f5;
+      margin-bottom: 20px;
+    }
+    .info {
+      font-size: 14px;
+      color: #e5e7eb;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .badge {
+      background: #16a34a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .section {
+      margin-top: 24px;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .eceran { background: #facc15; color: #000; }
+    .grosir { background: #22c55e; color: #000; }
+    .crypto  { background: #0ea5e9; color: #000; }
+    .pay     { background: #1e293b; color: #fff; }
 
-export default function BadawiFarmWebsite() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#020617] text-white">
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
 
-      {/* FLOATING WHATSAPP (DESKTOP ONLY) */}
-      <a
-        href={`https://wa.me/${WA_NUMBER}?text=Halo%20Badawi%20Farm,%20saya%20ingin%20order%20telur`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hidden md:flex fixed bottom-6 right-6 z-50 items-center gap-2 bg-green-500 hover:bg-green-600 px-5 py-3 rounded-full shadow-2xl transition"
-      >
-        <MessageCircle /> WhatsApp
+<body>
+  <div class="container">
+
+    <h1>BADAWI FARM</h1>
+    <div class="subtitle">
+      Supplier Telur Ayam Petelur • Grosir & Eceran
+    </div>
+
+    <div class="info">
+      📍 Jepara, Jawa Tengah – Slagi<br/>
+      Jl. Rangga Kusuma RT 13 RW 3<br/>
+      ⏰ Jam Operasional: 10.00 – 17.00
+    </div>
+
+    <div class="badge">
+      📦 Stok Hari Ini: TERSEDIA
+    </div>
+
+    <!-- PESAN -->
+    <div class="section">
+      <a class="button eceran"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20membeli%20TELUR%20ECERAN.%0ANama:%0AJumlah:%0AAlamat%20kirim:"
+        target="_blank">
+        🛒 Pesan Eceran (WhatsApp)
       </a>
 
-      {/* HERO */}
-      <section className="container mx-auto px-4 md:px-6 py-20 md:py-24 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold tracking-wide"
-        >
-          BADAWI FARM
-        </motion.h1>
-        <p className="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
-          Supplier Telur Ayam Berkualitas • Grosir & Eceran
-        </p>
-        <div className="mt-8 md:mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <Button
-            className="rounded-2xl px-8 py-6"
-            onClick={() =>
-              window.open(`https://wa.me/${WA_NUMBER}`, "_blank")
-            }
-          >
-            <ShoppingCart className="mr-2" /> Pesan Sekarang
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-2xl px-8 py-6"
-            onClick={() =>
-              window.open(
-                `https://wa.me/${WA_NUMBER}?text=Halo%20Badawi%20Farm,%20saya%20ingin%20bertanya`,
-                "_blank"
-              )
-            }
-          >
-            <Phone className="mr-2" /> Hubungi Kami
-          </Button>
-        </div>
-      </section>
-
-      {/* KEUNGGULAN */}
-      <section className="container mx-auto px-4 md:px-6 py-16 md:py-20">
-        <h2 className="text-3xl font-semibold text-center mb-12">
-          Kenapa Pilih Badawi Farm?
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{ icon: Egg, title: "Telur Segar", desc: "Langsung dari peternakan" }, { icon: ShieldCheck, title: "Kualitas Terjaga", desc: "Sortir & standar kebersihan" }, { icon: Truck, title: "Pengiriman Cepat", desc: "Siap kirim area sekitar" }].map((item, i) => (
-            <Card key={i} className="bg-white/5 border-white/10 rounded-2xl hover:scale-[1.02] transition">
-              <CardContent className="p-8 text-center">
-                <item.icon className="mx-auto mb-4 text-amber-400" size={36} />
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-slate-300 text-sm">{item.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* HARGA */}
-      <section className="container mx-auto px-4 md:px-6 py-16 md:py-20">
-        <h2 className="text-3xl font-semibold text-center mb-12">Harga Telur</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{ title: "Eceran", price: "Tanya Admin WhatsApp" }, { title: "Grosir", price: "Tanya Admin WhatsApp" }, { title: "Grosir Besar", price: "Tanya Admin WhatsApp" }].map((item, i) => (
-            <Card key={i} className="bg-white/5 border-white/10 rounded-2xl hover:scale-[1.02] transition">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-                <p className="text-2xl font-bold text-amber-400">{item.price}</p>
-                <Button
-                  className="mt-6 rounded-xl"
-                  onClick={() => window.open(`https://wa.me/${WA_NUMBER}`, "_blank")}
-                >
-                  Order via WhatsApp
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <p className="text-center text-sm text-slate-400 mt-6">
-          *Harga dapat berubah mengikuti pasar
-        </p>
-      </section>
-
-      {/* PEMBAYARAN */}
-      <section className="container mx-auto px-4 md:px-6 py-16 md:py-20">
-        <h2 className="text-3xl font-semibold text-center mb-12">Metode Pembayaran</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{ title: "Transfer Bank", desc: "BCA • BRI • Mandiri • BNI" }, { title: "E-Wallet", desc: "ShopeePay • DANA" }, { title: "Crypto", desc: "USDT • BTC • ETH" }].map((item, i) => (
-            <Card key={i} className="bg-white/5 border-white/10 rounded-2xl">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-slate-300 text-sm">{item.desc}</p>
-                <p className="mt-2 text-slate-400 text-sm">Detail via WhatsApp</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <div className="text-center mt-10">
-          <Button
-            className="rounded-xl"
-            onClick={() =>
-              window.open(
-                `https://wa.me/${WA_NUMBER}?text=Halo%20Badawi%20Farm,%20saya%20ingin%20konfirmasi%20pembayaran`,
-                "_blank"
-              )
-            }
-          >
-            Konfirmasi Pembayaran
-          </Button>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="container mx-auto px-4 md:px-6 py-16 text-center text-slate-400">
-        <p className="text-lg font-semibold text-white">BADAWI FARM</p>
-        <p className="mt-2">Peternakan & Supplier Telur Ayam</p>
-        <p className="mt-4 text-sm">© {new Date().getFullYear()} Badawi Farm</p>
-      </footer>
-    {/* STICKY CTA MOBILE */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#020617]/90 backdrop-blur border-t border-white/10 px-4 py-3">
-        <Button
-          className="w-full rounded-xl py-6 text-base"
-          onClick={() => window.open(`https://wa.me/${WA_NUMBER}`, "_blank")}
-        >
-          <ShoppingCart className="mr-2" /> Order via WhatsApp
-        </Button>
-      </div>
+      <a class="button grosir"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20ORDER%20GROSIR%20TELUR.%0ANama:%0ANama%20Usaha:%0AJumlah%20(Krat):%0AAlamat%20Pengiriman:"
+        target="_blank">
+        🚚 Pesan Grosir (WhatsApp)
+      </a>
     </div>
-  );
-}
+
+    <!-- PEMBAYARAN -->
+    <div class="section">
+      <h2>💳 Metode Pembayaran</h2>
+
+      <a class="button pay"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20melakukan%20PEMBAYARAN%20via%20BANK%20TRANSFER.%0ANama:%0ABank:"
+        target="_blank">
+        🏦 Transfer Bank
+      </a>
+
+      <a class="button pay"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20bayar%20menggunakan%20DANA.%0ANama:"
+        target="_blank">
+        📱 DANA
+      </a>
+
+      <a class="button pay"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20bayar%20menggunakan%20ShopeePay.%0ANama:"
+        target="_blank">
+        🛍️ ShopeePay
+      </a>
+
+      <a class="button crypto"
+        href="https://wa.me/6282132698172?text=Halo%20Badawi%20Farm%20👋%0ASaya%20ingin%20menanyakan%20PEMBAYARAN%20CRYPTO.%0ANama:%0AJenis%20Crypto:"
+        target="_blank">
+        💰 Crypto
+      </a>
+    </div>
+
+    <div class="footer">
+      Pembayaran: Tunai • Bank • DANA • ShopeePay • Crypto<br/>
+      © Badawi Farm
+    </div>
+
+  </div>
+</body>
+</html>
